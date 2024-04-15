@@ -1,0 +1,16 @@
+<div class="card">
+  <img class="img" [src]="gadget.thumbnail" alt="" />
+  <p class="textContainer">Title {{ gadget.title }}</p>
+  <p class="textContainer">Category: {{ gadget.category }}</p>
+  <p class="textContainer">Price: {{ gadget.price }}$</p>
+  <div class="textContainer rate">
+    @for (item of stars; track $index) {
+    <img
+      [src]="
+        $index + 1 > getRate() ? '/assets/star-empty.svg' : '/assets/star.svg'
+      "
+      alt=""
+    />
+    }
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="cardsList">
+  @for (gadget of gadgetService.currentGadgets(); track gadget.id) {
+  <app-gadget-item [gadget]="gadget"></app-gadget-item>
+  }
+</div>

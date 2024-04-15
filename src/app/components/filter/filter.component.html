@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="search">
+    <div>
+      <p class="title">Search title:</p>
+      <input class="input" [(ngModel)]="gadgetService.search" type="text" />
+    </div>
+    <div>
+      <p class="title">Select category</p>
+      <select
+        class="input"
+        [value]="gadgetService.cateogory"
+        [(ngModel)]="gadgetService.cateogory"
+        name=""
+        id=""
+      >
+        <option value="all">all</option>
+        @for (category of gadgetService.categories; track $index) {
+        <option [value]="category">{{ category }}</option>
+        }
+      </select>
+    </div>
+  </div>
+  <div class="search">
+    <div>
+      <p class="title">
+        Price range: <span class="number">{{ gadgetService.priceFilter }}</span>
+      </p>
+      <div class="numbers">
+        <p>0</p>
+        <p>{{ gadgetService.maxPrice + 1 }}</p>
+      </div>
+      <input
+        class="range"
+        [(ngModel)]="gadgetService.priceFilter"
+        type="range"
+        min="0"
+        [max]="gadgetService.maxPrice + 1"
+        step="50"
+      />
+    </div>
+    <div>
+      <p class="title">
+        Rating range:
+        <span class="number">{{ gadgetService.ratingFilter }}</span>
+      </p>
+      <div class="numbers">
+        <p>0</p>
+        <p>5</p>
+      </div>
+      <input
+        class="range"
+        [(ngModel)]="gadgetService.ratingFilter"
+        type="range"
+        min="0"
+        max="5"
+        step="1"
+      />
+    </div>
+  </div>
+</div>
